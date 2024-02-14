@@ -1,6 +1,6 @@
 import { useSearchParams } from "react-router-dom";
 
-import Select from "./Select.jsx";
+import SelectHorizontal from "./SelectHorizontal.jsx";
 
 function SortBy({ sortingOptions }) {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -12,7 +12,7 @@ function SortBy({ sortingOptions }) {
   }
 
   return (
-    <Select
+    <SelectHorizontal
       sortingOptions={sortingOptions}
       value={currentSortBy}
       type="white"

@@ -5,7 +5,7 @@ import Modal from "../../ui/Modal.jsx";
 function AddCabin() {
   return (
     <div>
-      <Modal name="cabin-form">
+      <Modal>
         <Modal.Open name="cabin-form">
           <Button>Add new cabin</Button>
         </Modal.Open>

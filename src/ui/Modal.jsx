@@ -57,13 +57,13 @@ const Button = styled.button`
 const ModalContext = createContext();
 
 function Modal({ children }) {
-  const [modelName, setModelName] = useState("");
+  const [modalName, setModalName] = useState("");
 
-  const close = () => setModelName("");
-  const open = setModelName;
+  const close = () => setModalName("");
+  const open = setModalName;
 
   return (
-    <ModalContext.Provider value={{ modelName, close, open }}>
+    <ModalContext.Provider value={{ modalName, close, open }}>
       {children}
     </ModalContext.Provider>
   );
@@ -79,17 +79,17 @@ function Open({ name, children }) {
 }
 
 function Window({ name, children }) {
-  const { modelName, close } = useContext(ModalContext);
+  const { modalName, close } = useContext(ModalContext);
 
-  const ref = useOutsideClick(close);
+  const modalRef = useOutsideClick(close);
 
-  if (modelName !== name) {
+  if (modalName !== name) {
     return null;
   }
 
   return createPortal(
     <Overlay>
-      <StyledModal ref={ref}>
+      <StyledModal ref={modalRef}>
         <Button onClick={close}>
           <HiX />
         </Button>

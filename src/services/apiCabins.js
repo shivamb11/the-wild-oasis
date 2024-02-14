@@ -13,6 +13,19 @@ export async function getCabins() {
   return data;
 }
 
+export async function getCabinsIdAndName() {
+  const { data, error } = await supabase
+    .from("cabins")
+    .select("name, id, maxCapacity, regularPrice, discount")
+    .order("created_at", { ascending: true });
+
+  if (error) {
+    throw new Error("Error while loading the cabins.");
+  }
+
+  return data;
+}
+
 export async function createCabin(newCabin) {
   const newImage = typeof newCabin.image !== "string";
 

@@ -120,7 +120,7 @@ function CheckinBooking() {
         <Button onClick={handleCheckin} disabled={!confirmPaid || isChecking}>
           Check in booking #{bookingId}
         </Button>
-        <Button variation="secondary" onClick={moveBack} disabled={isChecking}>
+        <Button $variation="secondary" onClick={moveBack} disabled={isChecking}>
           Back
         </Button>
       </ButtonGroup>

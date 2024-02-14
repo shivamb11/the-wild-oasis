@@ -43,13 +43,24 @@ function CabinTable() {
   const [field, direction] = sort.split("-");
   const modifier = direction === "asc" ? 1 : -1;
 
-  const sortedCabins = filteredCabins.sort(
-    (a, b) => (a[field] - b[field]) * modifier
-  );
+  const sortedCabins = filteredCabins.sort((a, b) => {
+    if (typeof a[field] === "string") {
+      if (a[field].toUpperCase() < b[field].toUpperCase()) {
+        return -1 * modifier;
+      } else if (a[field].toUpperCase() > b[field].toUpperCase()) {
+        return 1 * modifier;
+      }
+      // names must be equal
+      return 0;
+    } else {
+      // For numeric values
+      return (a[field] - b[field]) * modifier;
+    }
+  });
 
   return (
     <div>
-      <Table columns="0.6fr 1.8fr 2.2fr 1fr 1fr 1fr">
+      <Table columns="0.6fr 2.2fr 2fr 1fr 1fr 1fr">
         <Table.Header>
           <div></div>
           <div>Cabin</div>

@@ -14,7 +14,7 @@ const StyledSelect = styled.select`
   box-shadow: var(--shadow-sm);
 `;
 
-function Select({ sortingOptions, value, onChange, ...props }) {
+function SelectHorizontal({ sortingOptions, value, onChange, ...props }) {
   return (
     <StyledSelect value={value} onChange={onChange} {...props}>
       {sortingOptions.map((option) => (
@@ -26,4 +26,4 @@ function Select({ sortingOptions, value, onChange, ...props }) {
   );
 }
 
-export default Select;
+export default SelectHorizontal;
